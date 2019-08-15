@@ -3088,3 +3088,12 @@ console.log('=================================Usuarios por periodo de edad======
 console.log('usuarios entre 20 y 29 años: ',personasEntre20y29.length);
 console.log('usuarios entre 30 y 39 años: ',personasEntre30y39.length);
 console.log('usuarios mayores de 39 años: ',personasMayoresDe40.length);
+
+//agrupar la respuesta en un arreglo [[],cantidad]
+// sumar edades de todos
+//sumar edades de hombres
+//sumar edades de mujeres
+//filtrar hombres activos de quito y poner en mayusculas el value de ciudad
+//concatenar operadores
+//hay mas hombres o mujeres?
+//cauntos tienen rango 1 y rango 5 range
