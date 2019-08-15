@@ -67,9 +67,11 @@ console.log('numeros mayores que 4: ', arregloNumeros);
 //map devuelve un arreglo
 const arregloItemParMasDiez = arregloNumeros
     .map(
-        (value,index) => {
-            if(index%2===0){value+=10}
-            return value ;
+        (value, index) => {
+            if (index % 2 === 0) {
+                value += 10
+            }
+            return value;
         }
     );
 console.log('arreglo item par mas 10: ', arregloItemParMasDiez);
@@ -104,8 +106,65 @@ console.log('valor encontrado: ', valorEncontrado);
 
 //some almenos un elemento debe cumplir la condicion apra devolver true
 
-const arregloSome =arregloNumeros.some(
-    value => {return value >7}
+const arregloSome = arregloNumeros.some(
+    value => {
+        return value > 7
+    }
 );
 
-console.log('arreglo some: ',arregloSome);
+console.log('arreglo some: ', arregloSome);
+
+//reduce
+//cuenta con un acumulador
+const arregloReduce = arregloNumeros.reduce(
+    (acumulador, valor) => {
+    return acumulador- valor;
+        }
+    , 50 //este es el valor inicial del acumulador
+);
+console.log(arregloNumeros);
+console.log(arregloReduce);
+
+const personas= [
+    {
+        nombre: 'israel',
+        apellido: 'perez',
+        ciudad: 'uio'
+    },
+    {
+        nombre: 'jose',
+        apellido: 'espinosa',
+        ciudad: 'amb'
+    },
+    {
+        nombre:'Jorge',
+        apellido: 'reyes',
+        ciudad: 'uio'
+    }
+
+];
+
+const personasReduce = personas.reduce((acumulador,valor)=>{
+    console.log(acumulador);
+    const esDeQuito=valor.ciudad==='uio';
+    if(esDeQuito){
+        acumulador.push(valor)
+    }
+    return acumulador;
+},[])
+    .map(
+        value => {value.ciudad='Quito'
+        return value}
+    )
+
+console.log(personasReduce);
+
+//personas mayores de 20
+
+//nuevo arrego de personas con el nombre apellido y color de ojos
+//about tomar solo las 10 primeras palabras y cuantos caracteres tenia
+//cuantos amigos tiene cada uno
+//a cuantos les gusta la apple, la banana y la strawberry
+//cuantos usuarios son originalmente
+//arreglo de usuarios activos e inactivos
+// cuantos de 20 a 30 y cuales son de 30a 40 y cuales son
