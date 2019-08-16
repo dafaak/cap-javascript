@@ -1,4 +1,4 @@
-[
+personas = [
     {
         "_id": "5d55d2fbf126806f4db68d40",
         "index": 0,
@@ -4232,3 +4232,433 @@
         "favoriteFruit": "strawberry"
     }
 ]
+
+let arregloPersonas = JSON.stringify(personas);
+arregloPersonas = JSON.parse(arregloPersonas);
+
+const funcionSobrePersonas = {
+    cantidadDeUsuarios: (arreglo) => {
+        return arreglo.length
+    },
+    atributosDeUsuario: (arreglo) => {
+        return Object.keys(arreglo[0])
+    },
+    personasActivas: (arreglo) => {
+        let activos = arreglo
+            .reduce((acumulador, value) => {
+
+                estaActivo = value.isActive === true;
+
+                if (estaActivo) {
+                    acumulador.push(value.first);
+                }
+
+                return acumulador;
+            }, []);
+
+        let resultado = [];
+
+        resultado.push(activos);
+        resultado.push(activos.length);
+        let mensaje = 'no problem'
+        if (activos.lenght <= 0) {
+            mensaje = 'No Items problem'
+        }
+
+        resultado.push(mensaje);
+        return resultado;
+    },
+    personasEntre20y29: (arreglo) => {
+        let personas = arreglo
+            .reduce((acumulador, value) => {
+                let entre20y29 = (value.age > 19 && value.age < 30);
+                if (entre20y29) {
+                    acumulador.push(value.first);
+                }
+
+                return acumulador;
+            }, []);
+        let resultado = [];
+        resultado.push(personas);
+        resultado.push(personas.length);
+        let mensaje = 'no problem'
+        if (personas.lenght <= 0) {
+            mensaje = 'No Items problem'
+        }
+
+        resultado.push(mensaje);
+        return resultado;
+
+
+    },
+    personasEntre30y39: (arreglo) => {
+        let personas = arreglo
+            .reduce((acumulador, value) => {
+                let entre30y39 = (value.age > 29 && value.age < 40);
+                if (entre30y39) {
+                    acumulador.push(value.first);
+                }
+
+                return acumulador;
+            }, []);
+        let resultado = [];
+        resultado.push(personas);
+        resultado.push(personas.length);
+        let mensaje = 'no problem'
+        if (personas.lenght <= 0) {
+            mensaje = 'No Items problem'
+        }
+
+        resultado.push(mensaje);
+        return resultado;
+
+
+    },
+    personasMayoresDe39: (arreglo) => {
+        let personas = arreglo
+            .reduce((acumulador, value) => {
+                let mayor39 = (value.age >= 40);
+                if (mayor39) {
+                    acumulador.push(value.first);
+                }
+
+                return acumulador;
+            }, []);
+        let resultado = [];
+        resultado.push(personas);
+        resultado.push(personas.length);
+        let mensaje = 'no problem'
+        if (personas.lenght <= 0) {
+            mensaje = 'No Items problem'
+        }
+
+        resultado.push(mensaje);
+        return resultado;
+
+
+    },
+    personaNAO: arreglo => {
+        let personas = arreglo
+            .map(value => {
+                let persona = {
+                    nombre: value.first,
+                    apellido: value.last,
+                    colorDeOjos: value.eyeColor
+                }
+
+                return persona
+            })
+        let resultado = [];
+        resultado.push(personas);
+        resultado.push(personas.length);
+        let mensaje = 'no problem'
+        if (resultado.length <= 0) {
+            mensaje = 'No Items Problem';
+        }
+        resultado.push(mensaje);
+        return resultado;
+    },
+    personaAbout: arreglo => {
+
+        let about = arreglo
+            .map(
+                value => {
+                    let numCaracteres = value.about.length;
+                    let aboutModificado = value.about.slice(0, 10);
+                    let persona = {
+                        about: aboutModificado,
+                        longitud: numCaracteres
+                    };
+
+                    return persona;
+                }
+            );
+        let resultado = [];
+        resultado.push(about);
+        resultado.push(about.length);
+
+        let mensaje = 'No Problem';
+
+        if (resultado.length <= 0) {
+            mensaje = 'No Items Problem';
+        }
+        resultado.push(mensaje);
+        return resultado;
+    },
+    personaAmigos: arreglo => {
+        let personas = arreglo
+            .map(value => {
+
+                let persona = {
+                    nombre: value.first,
+                    cantidadDeAmigos: value.friends.length
+                };
+                return persona;
+            });
+        let resultado = [];
+        resultado.push(personas);
+        resultado.push(personas.length);
+
+        let mensaje = 'No Problem';
+
+        if (resultado.length <= 0) {
+            mensaje = 'No Items Problem';
+        }
+        resultado.push(mensaje);
+        return resultado;
+
+    },
+    personaLikeBanana: arreglo => {
+        let personas = arreglo
+            .reduce((acumulador, value) => {
+                    let bananaFavorite = value.favoriteFruit == 'banana'
+                    if (bananaFavorite) {
+                        acumulador.push(value.first);
+                    }
+                    return acumulador
+                }
+                , []);
+
+        let resultado = [];
+        resultado.push(personas);
+        resultado.push(personas.length);
+
+        let mensaje = 'No Problem';
+
+        if (resultado.length <= 0) {
+            mensaje = 'No Items Problem';
+        }
+        resultado.push(mensaje);
+        return resultado;
+    },
+    personaLikeApple: arreglo => {
+        let personas = arreglo
+            .reduce((acumulador, value) => {
+                    let bananaFavorite = value.favoriteFruit == 'apple'
+                    if (bananaFavorite) {
+                        acumulador.push(value.first);
+                    }
+                    return acumulador
+                }
+                , []);
+
+        let resultado = [];
+        resultado.push(personas);
+        resultado.push(personas.length);
+
+        let mensaje = 'No Problem';
+
+        if (resultado.length <= 0) {
+            mensaje = 'No Items Problem';
+        }
+        resultado.push(mensaje);
+        return resultado;
+    },
+    personaLikeStrawberry: arreglo => {
+        let personas = arreglo
+            .reduce((acumulador, value) => {
+                    let bananaFavorite = value.favoriteFruit == 'strawberry'
+                    if (bananaFavorite) {
+                        acumulador.push(value.first);
+                    }
+                    return acumulador
+                }
+                , []);
+
+        let resultado = [];
+        resultado.push(personas);
+        resultado.push(personas.length);
+
+        let mensaje = 'No Problem';
+
+        if (resultado.length <= 0) {
+            mensaje = 'No Items Problem';
+        }
+        resultado.push(mensaje);
+        return resultado;
+    },
+    personasInactivas: (arreglo) => {
+        let inactivos = arreglo
+            .reduce((acumulador, value) => {
+
+                estaInactivo = value.isActive === false;
+
+                if (estaInactivo) {
+                    acumulador.push(value.first);
+                }
+
+                return acumulador;
+            }, []);
+
+        let resultado = [];
+
+        resultado.push(inactivos);
+        resultado.push(inactivos.length);
+        let mensaje = 'no problem'
+        if (inactivos.lenght <= 0) {
+            mensaje = 'No Items problem'
+        }
+
+        resultado.push(mensaje);
+        return resultado;
+    },
+    sumaEdadesHombres: arreglo => {
+        let resultado = arreglo
+            .filter(value => {
+                return value.gender === 'masculino'
+
+            }).reduce(
+                (acumulador, value) => {
+                    acumulador += value.age
+                    return acumulador
+                }, 0
+            )
+        return resultado;
+    },
+    sumaEdadesMujeres: arreglo => {
+        let resultado = arreglo
+            .filter(value => {
+                return value.gender === 'femenino';
+
+            }).reduce(
+                (acumulador, value) => {
+                    acumulador += value.age
+                    return acumulador
+                }, 0
+            )
+        return resultado;
+    },
+    hombresActivosQuito: arreglo => {
+        let personas = arreglo
+            .filter(value => {
+                return value.gender === 'masculino'
+
+            }).filter(
+                value => {
+
+                    return value.isActive === true;
+                }
+            ).filter(
+                value => {
+                    return value.ciudad === 'quito'
+                }
+            ).map(value => {
+                value.ciudad = value.ciudad.toUpperCase();
+                return value;
+            })
+        let resultado = [];
+        resultado.push(personas);
+        resultado.push(personas.length);
+        let mensaje = 'No problem';
+
+        if (personas.length <= 0) {
+            mensaje = 'No Item Problem';
+        }
+        resultado.push(mensaje);
+        return resultado;
+
+    },
+    mayorCantidad: arreglo => {
+        let mujeres=arreglo
+            .filter(value=>{
+                return value.gender==='femenino';
+            })
+        let hombres=arreglo
+            .filter(value=>{
+                return value.gender==='masculino';
+            })
+
+        if (hombres.length>mujeres.length){
+            return 'hombres';}
+            else {return 'mujeres'}
+
+
+    },
+    personasRango1:arreglo => {
+    let rango1=arreglo
+        .filter(value=>{
+            return value.range===1;
+        })
+        let resultado = [];
+        resultado.push(rango1);
+        resultado.push(rango1.length);
+        let mensaje = 'No problem';
+
+        if (personas.length <= 0) {
+            mensaje = 'No Item Problem';
+        }
+        resultado.push(mensaje);
+        return resultado;
+
+    },
+    personasRango5:arreglo => {
+        let rango5=arreglo
+            .filter(value=>{
+                return value.range===5;
+            })
+        let resultado = [];
+        resultado.push(rango5);
+        resultado.push(rango5.length);
+        let mensaje = 'No problem';
+
+        if (personas.length <= 0) {
+            mensaje = 'No Item Problem';
+        }
+        resultado.push(mensaje);
+        return resultado;
+
+    }
+
+
+
+
+
+
+}
+
+/*console.log('Cantidad de personas:', funcionSobrePersonas.cantidadDeUsuarios(arregloPersonas));
+
+console.log('Atributos de una persona: ', funcionSobrePersonas.atributosDeUsuario(arregloPersonas));
+
+console.log('Personas activas:', funcionSobrePersonas.personasActivas(arregloPersonas));
+
+console.log('Personas entre 20 y 29:', funcionSobrePersonas.personasEntre20y29(arregloPersonas));
+
+console.log('Personas entre 30 y 39:', funcionSobrePersonas.personasEntre30y39(arregloPersonas));
+
+console.log('Personas mayores de 39:', funcionSobrePersonas.personasMayoresDe39(arregloPersonas));
+
+console.log('Personaes con nombre, apellido y olor de ojos: ', funcionSobrePersonas.personaNAO(arregloPersonas));
+
+console.log('About personas: ', funcionSobrePersonas.personaAbout(arregloPersonas));
+
+console.log('Personas numero de amigos: ', funcionSobrePersonas.personaAmigos(arregloPersonas));
+
+console.log('Personas que les gusta el platano: ', funcionSobrePersonas.personaLikeBanana(arregloPersonas));
+
+console.log('Personas que les gusta la manzana: ', funcionSobrePersonas.personaLikeApple(arregloPersonas));
+
+console.log('Personas que les gusta el frutilla: ', funcionSobrePersonas.personaLikeStrawberry(arregloPersonas));
+
+console.log('Personas inactivas: ', funcionSobrePersonas.personasInactivas(arregloPersonas));
+
+console.log('Suma Edades de los hombres:', funcionSobrePersonas.sumaEdadesHombres(arregloPersonas));
+
+console.log('Suma Edades de los hombres:', funcionSobrePersonas.sumaEdadesMujeres(arregloPersonas));
+
+console.log('Hombres activos de Quito: ',funcionSobrePersonas.hombresActivosQuito(arregloPersonas));
+
+console.log('hay más:',funcionSobrePersonas.mayorCantidad(arregloPersonas));
+
+console.log('personas rango 1:', funcionSobrePersonas.personasRango1(arregloPersonas));
+
+console.log('personas rango 5:', funcionSobrePersonas.personasRango5(arregloPersonas));*/
+
+//agrupar la respuesta en un arreglo [[],cantidad]
+// sumar edades de todos
+//sumar edades de hombres
+//sumar edades de mujeres
+//filtrar hombres activos de quito y poner en mayusculas el value de ciudad
+//concatenar operadores
+//hay mas hombres o mujeres?
+//cauntos tienen rango 1 y rango 5 range
